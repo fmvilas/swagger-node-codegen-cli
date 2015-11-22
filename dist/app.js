@@ -43,7 +43,7 @@ function askDefinitionFile(callback) {
     return callback(null, _path2.default.resolve(process.cwd(), args[0]));
   }
 
-  (0, _ask_swagger_file2.default)(__dirname, function (file) {
+  (0, _ask_swagger_file2.default)(process.cwd(), function (file) {
     callback(null, file);
   });
 }
@@ -59,7 +59,7 @@ function askTargetDirectory(callback) {
     return callback(null, dir);
   }
 
-  (0, _ask_target_dir2.default)(__dirname, function (dir) {
+  (0, _ask_target_dir2.default)(process.cwd(), function (dir) {
     callback(null, dir);
   });
 }

@@ -15,7 +15,7 @@ function askDefinitionFile (callback) {
     return callback(null, path.resolve(process.cwd(), args[0]));
   }
 
-  askSwaggerFile(__dirname, (file) => {
+  askSwaggerFile(process.cwd(), (file) => {
     callback(null, file);
   });
 }
@@ -31,7 +31,7 @@ function askTargetDirectory (callback) {
     return callback(null, dir);
   }
 
-  askTargetDir(__dirname, (dir) => {
+  askTargetDir(process.cwd(), (dir) => {
     callback(null, dir);
   });
 }
