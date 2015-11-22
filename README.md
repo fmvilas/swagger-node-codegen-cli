@@ -31,6 +31,10 @@ Example:
 snc ~/my-api.json ~/my-api
 ```
 
+If none of the arguments above are provided then you'll be prompted for them:
+
+![](images/snc.png)
+
 It will generate a directory structure like this:
 
 ```
