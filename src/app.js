@@ -6,12 +6,13 @@ import askSwaggerFile from './lib/ask_swagger_file.js';
 import askTargetDir from './lib/ask_target_dir.js';
 import { isDir } from './lib/helpers.js';
 import chalk from 'chalk';
+import jsonfile from 'jsonfile';
 
 const args = process.argv.slice(2);
 
 function askDefinitionFile (callback) {
   if (args.length) {
-    return callback(null, path.resolve(__dirname, args[0]));
+    return callback(null, path.resolve(process.cwd(), args[0]));
   }
 
   askSwaggerFile(__dirname, (file) => {
@@ -21,7 +22,7 @@ function askDefinitionFile (callback) {
 
 function askTargetDirectory (callback) {
   if (args.length > 1) {
-    const dir = path.resolve(args[1]);
+    const dir = path.resolve(process.cwd(), args[1]);
 
     if (!isDir(dir)) {
       xfs.mkdirsSync(dir);
@@ -45,7 +46,7 @@ async.series([
 });
 
 function generateProject (swagger_file, target_dir) {
-  const swagger = require(swagger_file);
+  const swagger = jsonfile.readFileSync(swagger_file);
 
   console.log(chalk.cyan('Generating project for %s...'), swagger.info.title);
 
