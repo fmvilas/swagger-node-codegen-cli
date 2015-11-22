@@ -1,8 +1,10 @@
+import xfs from 'fs-extra';
 import path from 'path';
 import async from 'async';
 import generator from 'swagger-node-codegen';
 import askSwaggerFile from './lib/ask_swagger_file.js';
 import askTargetDir from './lib/ask_target_dir.js';
+import { isDir } from './lib/helpers.js';
 import chalk from 'chalk';
 
 const args = process.argv.slice(2);
@@ -19,7 +21,13 @@ function askDefinitionFile (callback) {
 
 function askTargetDirectory (callback) {
   if (args.length > 1) {
-    return callback(null, path.resolve(args[1]));
+    const dir = path.resolve(args[1]);
+
+    if (!isDir(dir)) {
+      xfs.mkdirsSync(dir);
+    }
+
+    return callback(null, dir);
   }
 
   askTargetDir(__dirname, (dir) => {
