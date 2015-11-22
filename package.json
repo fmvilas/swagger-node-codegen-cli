@@ -1,0 +1,42 @@
+{
+  "name": "swagger-node-generator-cli",
+  "version": "0.0.1",
+  "description": "A CLI Swagger code generator for Node.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "bin": {
+    "snc": "./main.js"
+  },
+  "bugs": {
+    "url": "https://github.com/fmvilas/swagger-node-codegen-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fmvilas/swagger-node-codegen-cli.git"
+  },
+  "keywords": [
+    "swagger",
+    "rest",
+    "generator",
+    "es6",
+    "api",
+    "cli"
+  ],
+  "author": {
+    "name": "Francisco Méndez Vilas",
+    "email": "fmvilas@gmail.com",
+    "url": "http://www.fmvilas.com"
+  },
+  "homepage": "https://github.com/fmvilas/swagger-node-codegen-cli",
+  "dependencies": {
+    "async": "1.5.0",
+    "babel": "6.1.18",
+    "babel-core": "6.2.1",
+    "babel-preset-es2015": "6.1.18",
+    "chalk": "1.1.1",
+    "clear": "0.0.1",
+    "inquirer": "0.11.0",
+    "swagger-node-codegen": "0.0.4"
+  }
+}
