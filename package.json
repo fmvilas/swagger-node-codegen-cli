@@ -1,6 +1,6 @@
 {
   "name": "swagger-node-codegen-cli",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A CLI Swagger code generator for Node.js",
   "scripts": {
     "start": "node main.js"
