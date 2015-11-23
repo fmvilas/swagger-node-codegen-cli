@@ -2,7 +2,7 @@
 
 ## Description
 
-CLI for swagger-node-codegen. Use your API Swagger definition to generate the Node.js ES6-compliant code of your API.
+CLI for [swagger-node-codegen](https://github.com/fmvilas/swagger-node-codegen). Use your API Swagger definition to generate the Node.js ES6-compliant code of your API.
 
 The generated code features:
 
