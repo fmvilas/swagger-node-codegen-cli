@@ -22,8 +22,10 @@ npm install swagger-node-codegen-cli -g
 Syntax:
 
 ```sh
-snc [path/to/swagger.json] [path/to/target/directory]
+snc [path/to/swagger/file] [path/to/target/directory]
 ```
+
+> Swagger file can be either JSON or YAML.
 
 Example:
 

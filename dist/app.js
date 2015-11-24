@@ -30,10 +30,6 @@ var _chalk = require('chalk');
 
 var _chalk2 = _interopRequireDefault(_chalk);
 
-var _jsonfile = require('jsonfile');
-
-var _jsonfile2 = _interopRequireDefault(_jsonfile);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var args = process.argv.slice(2);
@@ -71,12 +67,16 @@ _async2.default.series([askDefinitionFile, askTargetDirectory], function (err, r
 });
 
 function generateProject(swagger_file, target_dir) {
-  var swagger = _jsonfile2.default.readFileSync(swagger_file);
+  console.log(_chalk2.default.cyan('Generating project...'));
 
-  console.log(_chalk2.default.cyan('Generating project for %s...'), swagger.info.title);
+  _swaggerNodeCodegen2.default.generate({ swagger: swagger_file, target_dir: target_dir }, function (err) {
+    if (err) {
+      console.log(_chalk2.default.red('Aaww 💩. Something went wrong:'));
+      console.log(_chalk2.default.red(err.message));
+      return;
+    }
 
-  _swaggerNodeCodegen2.default.generate({ swagger: swagger, target_dir: target_dir });
-
-  console.log(_chalk2.default.green('Done! ✨'));
-  console.log(_chalk2.default.yellow('You can check your shiny new API in ') + _chalk2.default.magenta(target_dir) + _chalk2.default.yellow('.'));
+    console.log(_chalk2.default.green('Done! ✨'));
+    console.log(_chalk2.default.yellow('You can check your shiny new API in ') + _chalk2.default.magenta(target_dir) + _chalk2.default.yellow('.'));
+  });
 }
