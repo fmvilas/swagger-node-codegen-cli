@@ -1,3 +1,7 @@
+# DEPRECATED: Use [swagger-node-codegen](https://github.com/fmvilas/swagger-node-codegen) instead.
+
+---
+
 # CLI for Swagger ES6 Node.js code generator
 
 ## Description
